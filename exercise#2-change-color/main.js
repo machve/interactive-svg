@@ -13,30 +13,28 @@ async function loadSvg() {
     div.innerHTML = svg;
 
 
-let one = document.querySelector("#one");
-one.addEventListener("mouseenter", function(){
-    one.setAttribute("fill", "#FF00F7")
-});
-one.addEventListener("mouseout", function(){
-    one.setAttribute("fill", "#bf5827")
-});
+    let one = document.querySelector("#one");
+    one.addEventListener("mouseenter", function () {
+        one.setAttribute("fill", "#FF00F7")
+    });
+    one.addEventListener("mouseout", function () {
+        one.setAttribute("fill", "#bf5827")
+    });
 
-let second = document.querySelector("#two");
-second.addEventListener("mouseenter", function(){
-    second.setAttribute("fill", "#FFEE28")
-});
-second.addEventListener("mouseout", function(){
-   second.setAttribute("fill", "#1f449c")
-});
+    let second = document.querySelector("#two");
+    second.addEventListener("mouseenter", function () {
+        second.setAttribute("fill", "#FFEE28")
+    });
+    second.addEventListener("mouseout", function () {
+        second.setAttribute("fill", "#1f449c")
+    });
 
-let third = document.querySelector("#three");
-three.addEventListener("mouseenter", function(){
- three.setAttribute("fill", "#903FF2")
-});
-three.addEventListener("mouseout", function(){
-   three.setAttribute("fill", "#5aba47")
-});
-
+    let third = document.querySelector("#three");
+    three.addEventListener("mouseenter", function () {
+        three.setAttribute("fill", "#903FF2")
+    });
+    three.addEventListener("mouseout", function () {
+        three.setAttribute("fill", "#5aba47")
+    });
 
 }
-
