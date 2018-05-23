@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    polyline {
+        stroke:#c0ff33;
+        fill: none;
+    stroke-width: 1px;
+    stroke-dasharray: 326;
+    stroke-dashoffset: 326;
+    transition: all 3s ease;
+    animation-delay: 2s;
+
+
+    }
+    
+    </style>
+</head>
+<body>
+    <div>
+        <svg viewBox="0 0 250 100" xmlns="http://www.w3.org/2000/svg">
+         
+            
+            <polyline points="0,100 60,25 100,55 150,30 190,80 230,40"/>
+          </svg>
+        </div>
+<script>
+   let pointsFinal = "";
+   const points = ["0,100" , "60,25" , "100,55" , "150,30" , "190,80" , "230,40"];
+   let graph = document.querySelector('polyline');
+   let svg = document.querySelector('svg');
+   points.forEach(e => {
+    pointsFinal = pointsFinal.concat(e + " ");
+})
+graph.setAttribute('points',pointsFinal);
+svg.addEventListener('mouseover',function(){
+    graph.style.strokeDashoffset = 0;
+});
+
+
+</script>
+
+
+</body>
+</html>
