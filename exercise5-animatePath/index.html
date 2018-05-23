@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       <style>
+    #path {
+        width: 30%;
+    }
+    #timeline path{
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        transition: all 5s linear;
+    }
+    #timeline g{
+        opacity: 0;
+        transition: all 1s linear;
+    }
+    </style>
+    </style>
+</head>
+
+<body>
+        <div id="path"></div>
+
+
+    <script>
+       const container = document.querySelector('#path');
+        document.addEventListener('DOMContentLoaded', loadSvg);
+        
+        async function loadSvg() {
+            const svgData = await fetch('path.svg');
+            const mySvg = await svgData.text();
+            container.innerHTML = mySvg;
+            
+        }
+    container.addEventListener('mouseover', ()=>{
+            document.querySelector('#timeline path').style.strokeDashoffset = 0;
+            
+            let i = 0;
+            document.querySelectorAll('#timeline g').forEach(elm => {
+                elm.style.opacity = 1;
+                elm.style.transitionDelay = i++ * 0.7 + 's';
+                });
+        });
+    container.addEventListener('mouseout',()=>{
+            document.querySelector('#timeline path').style.strokeDashoffset = 1000;
+            document.querySelectorAll('#timeline g').forEach(elm => {
+                elm.style.opacity = 0;
+                });
+    });
+
+    </script>
+</body>
+
+</html>
