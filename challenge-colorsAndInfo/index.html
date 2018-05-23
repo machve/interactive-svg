@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+    <h1></h1>
     <div id="svg"></div>
-    
-   <script src="main.js"></script> 
+
+    <!-- <script src="main.js"></script>  -->
+    <script>
+        let fillColor;
+        let newColor = "#0FF1C3";
+        let areaId;
+        let myJson;
+
+        document.addEventListener("DOMContentLoaded", getData)
+
+        async function getData() {
+
+            //load svg
+            const svgData = await fetch("map.svg");
+            let mySvg = await svgData.text();
+            //show svg in DOM
+            document.getElementById("svg").innerHTML = mySvg;
+
+
+            //load json
+            const jsonData = await fetch("data.json");
+            myJson = await jsonData.json();
+console.log(myJson);
+
+            //change color on mouseover
+            document.querySelector("svg").addEventListener("mouseover", changeColor);
+            document.querySelector("svg").addEventListener("mouseout", originalColor);
+        }
+
+        function changeColor() {
+
+
+            //what have I hovered
+            let area = event.target;
+            areaId = area.id;
+            let id = area.parentElement.id;
+            fillColor = area.getAttribute("fill");
+
+            document.querySelector("#" + areaId).setAttribute("fill", newColor);
+
+            myJson.forEach(element => {
+                //see if the city and id matches
+                if (element.city === id)
+document.querySelector("h1").textContent = element.city;
+
+
+            })
+
+
+
+            console.log(fillColor);
+
+        }
+
+        function originalColor() {
+            document.querySelector("#" + areaId).setAttribute("fill", fillColor);
+        }
+
+
+
+
+
+        //load json
+    </script>
 </body>
+
 </html>

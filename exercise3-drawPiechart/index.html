@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #circle1 {
+    width: 50%;
+    fill: none;
+    stroke: #0ff1c3;
+    stroke-width: 100;
+    stroke-dasharray: 358 314;
+    stroke-dashoffset: 0;
+    transition: all 3s ease;
+    animation-delay: 2s;
+}
+
+      #circle2 {
+    width: 50%;
+    fill: none;
+    stroke: #c0ff33;
+    stroke-width: 100;
+    stroke-dasharray: 160 314;
+    stroke-dashoffset: 0;
+    transition: all 3s ease;
+    animation-delay: 1s;
+}
+
+        #circle3 {
+    width: 50%;
+    fill: none;
+    stroke: #7e57e2;
+    stroke-width: 100;
+    stroke-dasharray: 90 314;
+    stroke-dashoffset: 0;
+    transition: all 3s ease;
+    
+}
+
+
+        svg {
+            background-color: #f157ed;
+            transform: rorate(-90deg);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>lala</h1>
+    <div id="circle">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle id="circle1" cx="50" cy="50" r="50" />
+            <circle id="circle2" cx="50" cy="50" r="50" />
+             <circle id="circle3"   cx="50" cy="50" r="50"/>
+        <!-- <circle id="circle4"   cx="50" cy="50" r="50"/>  -->
+        </svg>
+    </div>
+</body>
+<script>
+    let firstCircle = document.querySelector("#circle1");
+    let secondCircle = document.querySelector("#circle2");
+    let thirdCircle = document.querySelector("#circle3");
+
+
+let parId;
+let myJson;
+document.addEventListener("DOMContentLoaded", getJson);
+
+async function getJson() {
+let myText = await fetch ("data.json");
+myJson = await myText.json();
+firstCircle.style.strokeDashoffset= 43;
+secondCircle.style.strokeDashoffset= 50;
+thirdCircle.style.strokeDashoffset= 294;
+
+
+ document.querySelector("svg").addEventListener("mouseover", showJson);
+}
+function showJson (){
+let part = event.target;
+console.log(part)
+partId = part.id;
+
+console.log(myJson)
+
+ myJson.forEach(element => {
+                //see if the city and id matches
+                if (element.name === partId)
+document.querySelector("h1").textContent = element.value;
+
+
+            })
+
+     
+
+      
+}
+
+</script>
+</html>

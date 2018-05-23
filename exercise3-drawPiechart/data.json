@@ -1,0 +1,17 @@
+[ 
+    {
+        "name": "circle1",
+        "value": "50%"
+    },
+    {
+        "name": "circle2",
+        "value": "30%"
+
+    },
+    {
+        "name": "circle3",
+        "value": "20%"
+
+    }
+
+]

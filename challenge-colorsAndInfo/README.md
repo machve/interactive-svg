@@ -10,7 +10,7 @@
 ## Hint
 Use the svg objects fill attribute.
 
-the citynames and svg id's corrospond
+the citynames and svg id's correspond
 
 you might need to use selectors like:
  
